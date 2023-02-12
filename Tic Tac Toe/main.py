@@ -125,14 +125,14 @@ class Window(QMainWindow):
 
     def miniMax(self, bstate, isMaximizing):
         result = self.check()
-        if (result == -1): return 0
-        if (result == 1): return -1
-        if (result == 2): return 1
-        if (isMaximizing):
+        if result == -1: return 0
+        if result == 1: return -1
+        if result == 2: return 1
+        if isMaximizing:
             bestScore = -100
             for row in range(3):
                 for column in range(3):
-                    if (self.board[row][column].move == 0):
+                    if self.board[row][column].move == 0:
                         self.board[row][column].move = 2
                         score = self.miniMax(self.board, False)
                         self.board[row][column].move = 0
